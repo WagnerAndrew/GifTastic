@@ -1,7 +1,21 @@
-#gifRows {
+#gifVP{
+    position: relative;
+    height: 80%;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+
+/* #gifRows {
     width: 40%;
 }
 
 #nav {
     width: auto;
-}
+} */
