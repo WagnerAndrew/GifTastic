@@ -1,10 +1,11 @@
+
 // VARIABLES
 
 var authorArr = ["Ernest Hemingway", "Cormac McCarthy", "Henry David Thorough", "Emily Dickinson"];
 
 //FUNCTIONS
 
- // FUNCTION 1
+// FUNCTION 1
 
 function buttons () {
 
@@ -33,30 +34,54 @@ buttons ();
 
  // FUNCTION 3
 
- function displayAuthorInfo() {
+ function displayGifs() {
 
-    var author = $(this).attr("data-name");
-    var queryURL = "https://www.omdbapi.com/?t=" + authorInput + "&y=&plot=short&apikey=trilogy";
+    var apiKey = "LV0ypr93m56rG5vGRtePavvqGnVPmzDo"
+    var authorButton = $(this).attr("data-name");
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + authorButton + "&limit=10&offset=0&rating=G&lang=en";
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      $("#gifVP").text(JSON.stringify(response));
+        console.log (response);
+
+        var gifRow = $("<div class='row m-1 border border-primary'>");
+        var gifDiv = $("<div class='col border border-primary clearfix'>");
+        for (var i = 0; i < response.data.length; i++) {
+
+
+
+            var authorGif = $("<img class='m-1'>");
+            var gifURL = response.data[i].images.fixed_height_small.url;
+
+            authorGif.attr("src", gifURL);
+            gifDiv.append(authorGif);
+
+        }
+
+        gifRow.append(gifDiv);
+        $("#gifVP").prepend(gifRow);
+
     });
   }
 
 
 
-
-
-
-
-
-
-
-
 //PROCESS
+
+$(document).on("click", ".author", displayGifs);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
