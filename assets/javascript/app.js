@@ -1,7 +1,7 @@
 
 // VARIABLES
 
-var authorArr = ["Ernest Hemingway", "Cormac McCarthy", "Henry David Thorough", "Emily Dickinson"];
+var authorArr = ["Edgar Allan Poe", "Mary Shelley", "Ernest Hemingway", "Emily Dickinson", "Cormac McCarthy", "Henry David Thoreau"];
 
 //FUNCTIONS
 
@@ -46,26 +46,26 @@ buttons ();
     }).then(function(response) {
         console.log (response);
 
-        var gifRow = $("<div class='row m-2 p-1 border border-primary'>");
-        var gifDiv = $("<div class='col border border-primary'>");
-        var gifFig = $("<figure class='figure m-1'>");
+        var gifRow = $("<div class='row m-2 p-1'>");
+        var gifDiv = $("<div class='col'>");
+        
 
         for (var i = 0; i < response.data.length; i++) {
 
-            var image = $("<img class='figure-img .img-fluid rounded gif' 'style: width=100%'>")
+            var image = $("<img class='figure-img img-fluid rounded gif'>")
             var imageURL = response.data[i].images.fixed_height_small_still.url;
             var imageCaption = $("<figcaption class='figure-caption'>" + "Rating: " + (response.data[i].rating).toUpperCase () + "</figcaption>");
+            var gifFig = $("<figure class='figure m-1'>");
 
             image.attr("src", imageURL);
             image.attr("data-state", "still");
             image.attr("data-still", response.data[i].images.fixed_height_small_still.url);
             image.attr("data-animate", response.data[i].images.fixed_height_small.url);
-            gifFig.append(image);
-            gifFig.append(imageCaption);
+            gifFig.append(image, imageCaption);
             gifDiv.append(gifFig);
+            
         }
-        
-        
+            
         gifRow.append(gifDiv);
         $("#gifVP").prepend(gifRow);
 
@@ -77,6 +77,7 @@ buttons ();
 //PROCESS
 
 $(document).on("click", ".author", displayGifs);
+$("authorInput").val("");
 
 $(document).on("click", ".gif", function() {
 

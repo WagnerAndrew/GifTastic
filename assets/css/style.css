@@ -1,5 +1,14 @@
-#gifVP{
+/* body {
+    background: orange;
+    background-image: url("../images/books.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;   
+} */
+
+
+#gifVP {
     position: relative;
     height: 85%;
-    overflow-y: auto;
+    overflow-y: auto;   
 }
