@@ -3,6 +3,7 @@ body {
     background-image: url("../images/books.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    font-family: 'EB Garamond', serif;
 }
 
 .color {
