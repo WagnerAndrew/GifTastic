@@ -40,7 +40,7 @@ function buttons () {
 
         for (var i = 0; i < response.data.length; i++) {
 
-            var image = $("<img class='figure-img img-fluid rounded gif'>")
+            var image = $("<img class='figure-img img-fluid rounded gif'>");
             var imageURL = response.data[i].images.fixed_height_small_still.url;
             var imageCaption = $("<figcaption class='figure-caption text-dark'>" + "Rating: " + (response.data[i].rating).toUpperCase () + "</figcaption>");
             var gifFig = $("<figure class='figure m-1'>");
