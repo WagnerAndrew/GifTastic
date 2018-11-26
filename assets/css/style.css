@@ -1,14 +1,27 @@
-/* body {
-    background: orange;
+body {
+    background: #000000;
     background-image: url("../images/books.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;   
-} */
+    background-position: center;
+}
 
+.color {
+    background: #8d8d8d;
+}
+
+.newColor {
+    background: #b0b0b0;
+}
+
+.border{
+    border-width: 3px !important;
+}
 
 #gifVP {
     position: relative;
     height: 85%;
-    overflow-y: auto;   
+    overflow-y: auto; 
+ 
 }
+
+

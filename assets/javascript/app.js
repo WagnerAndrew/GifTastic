@@ -13,7 +13,7 @@ function buttons () {
 
     for (var i = 0; i < authorArr.length; i++) {
         var button = $("<button>");
-        button.addClass("author btn btn-outline-secondary m-1");       
+        button.addClass("author btn btn-info m-1");       
         button.attr("data-name", authorArr[i]);      
         button.text(authorArr[i]);     
         $("#btnVP").append(button);
@@ -21,19 +21,7 @@ function buttons () {
 }
 
  // FUNCTION 2
-      
-$("#submitBtn").on("click", function(event) {
   
-    event.preventDefault();
-    var authorInput = $("#authorInput").val().trim();
-    authorArr.push(authorInput);
-    buttons();
-});
-
-buttons ();
-
- // FUNCTION 3
-
  function displayGifs() {
 
     var apiKey = "LV0ypr93m56rG5vGRtePavvqGnVPmzDo"
@@ -46,7 +34,7 @@ buttons ();
     }).then(function(response) {
         console.log (response);
 
-        var gifRow = $("<div class='row m-2 p-1'>");
+        var gifRow = $("<div class='row m-2 p-1 border border-dark rounded newColor'>");
         var gifDiv = $("<div class='col'>");
         
 
@@ -54,7 +42,7 @@ buttons ();
 
             var image = $("<img class='figure-img img-fluid rounded gif'>")
             var imageURL = response.data[i].images.fixed_height_small_still.url;
-            var imageCaption = $("<figcaption class='figure-caption'>" + "Rating: " + (response.data[i].rating).toUpperCase () + "</figcaption>");
+            var imageCaption = $("<figcaption class='figure-caption text-dark'>" + "Rating: " + (response.data[i].rating).toUpperCase () + "</figcaption>");
             var gifFig = $("<figure class='figure m-1'>");
 
             image.attr("src", imageURL);
@@ -72,12 +60,21 @@ buttons ();
     });
   }
 
-
-
 //PROCESS
 
+$("#submitBtn").on("click", function(event) {
+  console.log (event);
+    event.preventDefault();
+    var authorInput = $("#authorInput").val().trim();
+    authorArr.push(authorInput);
+    buttons();
+    $("#authorInput").val('');
+
+});
+
+buttons ();
+
 $(document).on("click", ".author", displayGifs);
-$("authorInput").val("");
 
 $(document).on("click", ".gif", function() {
 
