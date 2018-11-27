@@ -1,2 +1,1 @@
-# GifTastic
-GifTastic Homework Assignment
+If you click on any author button on the top row -- you will see 10 GIFs related to that author appear.  You can add your own author button by typing the author's name.  That author's name will appear in the button row and work just like the other buttons.
